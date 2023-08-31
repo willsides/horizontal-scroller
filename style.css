@@ -20,6 +20,10 @@
     border-radius: 4px;
     margin-block-start: 0;
 }
+.ws-hscroller-grid .ws-grid-item-overlay-container {
+    border-radius: 4px;
+    box-shadow: rgba(3, 4, 7, 0.28) 0px 3px 5px -2px, rgba(3, 4, 7, 0.3) 0px 7px 14px -5px;
+}
 
 .ws-hscroller-container {
     --_spacing: 3rem;
