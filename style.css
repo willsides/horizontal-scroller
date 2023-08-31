@@ -1,0 +1,114 @@
+.ws-hscroller-grid {
+    display: grid;
+    padding-bottom: calc( var(--_spacing) * (1 / 2) - 0.5rem );
+    grid-auto-flow: column;
+    grid-auto-columns: 20rem;
+    gap: var(--_spacing);
+    scroll-padding-inline: var(--_spacing);
+    overflow-x: scroll;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    margin-block-start: 0 !important;
+}
+
+.ws-hscroller-grid > *{
+    inline-size: 100%;
+    scroll-snap-align: start;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--wp--preset--color--primary);
+    border-radius: 4px;
+    margin-block-start: 0;
+}
+
+.ws-hscroller-container {
+    --_spacing: 3rem;
+    padding-top: var(--_spacing);
+    padding-bottom: calc( var(--_spacing) * (1 / 2) );
+    position: relative;
+}
+
+.ws-hscroller-text-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ws-hscroller-grid::-webkit-scrollbar {
+    height: 0.5rem;
+}
+.ws-hscroller-grid::-webkit-scrollbar-track{
+    background-color: transparent;
+    margin-inline: 1rem;
+}
+.ws-hscroller-grid::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    background: rgba(0,0,0,0.2);
+}
+.ws-hscroller-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.35);
+}
+div.ws-hscroller-scrl-btn {
+    block-size: 100%;
+    width: 10rem;
+    max-width: 20%;
+    position: absolute;
+    top: 0;
+    transition: all 2s ease-in;
+    cursor: pointer;
+}
+/* Adds the responsive black gradient to the left/right scroll buttons */
+.ws-hscroller-scrl-btn.ws-hscroller-right {
+    background: radial-gradient(farthest-side at right,rgba(0,0,0,0.40),rgba(0,0,0,0));
+    right: 0;
+}
+.ws-hscroller-scrl-btn.ws-hscroller-left {
+    background: radial-gradient(farthest-side at left,rgba(0,0,0,0.40),rgba(0,0,0,0));
+    left: 0;
+}
+.ws-hscroller-scrl-btn.ws-hscroller-right:hover {
+    background: radial-gradient(farthest-side at right,rgba(0,0,0,0.9),rgba(0,0,0,0));
+}
+.ws-hscroller-scrl-btn.ws-hscroller-left:hover {
+    background: radial-gradient(farthest-side at left,rgba(0,0,0,0.9),rgba(0,0,0,0));
+}
+
+/* Makes and formats the actual animated buttons */
+.ws-hscroller-scrl-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    height: 3.5em;
+    width: 1.5em;
+    font-size: 1rem;
+    overflow: hidden;
+    transform: translateY(-50%);
+    animation: pulsate 1.5s ease-in-out infinite;
+}
+.ws-hscroller-scrl-icon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 2px solid #fff;
+    transform: rotate(45deg);
+}
+.ws-hscroller-left .ws-hscroller-scrl-icon {
+    left: 20%;
+}
+.ws-hscroller-right .ws-hscroller-scrl-icon {
+    right: 20%;
+}
+.ws-hscroller-left .ws-hscroller-scrl-icon:before {
+    left: 10px;
+}
+.ws-hscroller-right .ws-hscroller-scrl-icon:before {
+    right: 10px;
+}
+.ws-hidden {
+    display: none;
+}
