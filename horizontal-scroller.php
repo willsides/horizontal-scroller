@@ -19,7 +19,7 @@ function willsides_register_horizontal_scrolling_pattern(){
             'title' => 'Horizontal Scrolling Query',
             'description' => 'Displays a query in a full-width, horzontal, scrollable row with leading and trailing headers.',
             'categories' => array(
-                'Posts'
+                'posts'
             ),
             'content' => '
                 <!-- wp:group {"align":"full", "style":{"spacing":{"padding":{"right":"0","left":"0"}}}, "backgroundColor":"primary", "className":"ws-hscroller-container","layout":{"type":"default"}} -->
