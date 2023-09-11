@@ -18,6 +18,9 @@ function willsides_register_horizontal_scrolling_pattern(){
         array(
             'title' => 'Horizontal Scrolling Query',
             'description' => 'Displays a query in a full-width, horzontal, scrollable row with leading and trailing headers.',
+            'categories' => array(
+                'Posts'
+            ),
             'content' => '
                 <!-- wp:group {"align":"full", "style":{"spacing":{"padding":{"right":"0","left":"0"}}}, "backgroundColor":"primary", "className":"ws-hscroller-container","layout":{"type":"default"}} -->
                 <div class="wp-block-group alignfull ws-hscroller-container has-primary-background-color has-background" style="padding-right:0;padding-left:0">
@@ -91,5 +94,15 @@ function willsides_hscroller_enqueue_styles() {
     );
 }
 
+function willsides_hscroller_activation_check() {
+    if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'willsides/cover-link' ) ) {
+        deactivate_plugins( plugin_basename( __FILE__ ) );
+        wp_die( 'The required block willsides/cover-link is not installed. Please install and activate the <a href="https://github.com/willsides/cover-link" target="_blank">Cover Link block by Will Sides</a>.' );
+    }
+}
+
+register_activation_hook( __FILE__, 'willsides_hscroller_activation_check' );
 add_action( 'init', 'willsides_register_horizontal_scrolling_pattern' );
 add_action( 'wp_enqueue_scripts', 'willsides_hscroller_enqueue_styles' );
+
+
