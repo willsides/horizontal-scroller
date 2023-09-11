@@ -39,16 +39,15 @@ function willsides_register_horizontal_scrolling_pattern(){
                     <!-- wp:group {"className":"ws-hscroller-grid","layout":{"type":"constrained"}} -->
                     <div class="wp-block-group ws-hscroller-grid">
                     
-                        <!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|background"}}}}},"textColor":"background","className":"ws-hscroller-text-div","layout":{"type":"constrained"}} -->
-                        <div class="wp-block-group ws-hscroller-text-div has-background-color has-text-color has-link-color">
+                        <!-- wp:willsides/cover-link {"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
                             <!-- wp:html -->
-                            <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"></path></svg>
+                                <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"></path></svg>
                             <!-- /wp:html -->
-
+                            
                             <!-- wp:heading {"textAlign":"center","level":4} -->
-                            <h4 class="wp-block-heading has-text-align-center">Cocktails</h4>
+                                <h4 class="wp-block-heading has-text-align-center">Cocktails</h4>
                             <!-- /wp:heading -->
-                        </div><!-- /wp:group -->
+                        <!-- /wp:willsides/cover-link -->
 
                         <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"rand","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]}} -->
                         <div class="wp-block-query">
@@ -59,16 +58,15 @@ function willsides_register_horizontal_scrolling_pattern(){
                             <!-- /wp:post-template -->
                         </div><!-- /wp:query -->
 
-                        <!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|background"},":hover":{"color":{"text":"var:preset|color|background"}}}}},"textColor":"background","className":"ws-hscroller-text-div","layout":{"type":"constrained"}} -->
-                        <div class="wp-block-group ws-hscroller-text-div has-background-color has-text-color has-link-color">
+                        <!-- wp:willsides/cover-link {"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
                             <!-- wp:heading {"textAlign":"center","level":4} -->
-                            <h4 class="wp-block-heading has-text-align-center">View more</h4>
+                                <h4 class="wp-block-heading has-text-align-center">View more</h4>
                             <!-- /wp:heading -->
-
+                            
                             <!-- wp:html -->
-                            <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M0,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
+                                <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M0,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
                             <!-- /wp:html -->
-                        </div><!-- /wp:group -->
+                        <!-- /wp:willsides/cover-link -->
                     </div><!-- /wp:group -->
                 </div><!-- /wp:group -->
             '
@@ -81,17 +79,17 @@ function willsides_hscroller_enqueue_styles() {
         'willsides-hscroller-scripts', 
         plugin_dir_url( __FILE__ ) . 'scripts.js', 
         array(),
-        '0.0.2', 
+        '0.0.3', 
         array('strategy' => 'defer')
     );
     wp_enqueue_style(
         'willsides-hscroller-styles', 
         plugin_dir_url( __FILE__ ) . 'style.css', 
         array(),
-        '0.0.4', 
+        '0.0.7', 
         'all',
     );
 }
 
-add_action('init', 'willsides_register_horizontal_scrolling_pattern');
+add_action( 'init', 'willsides_register_horizontal_scrolling_pattern' );
 add_action( 'wp_enqueue_scripts', 'willsides_hscroller_enqueue_styles' );
