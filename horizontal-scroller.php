@@ -42,10 +42,10 @@ function willsides_register_horizontal_scrolling_pattern(){
                     <!-- wp:group {"className":"ws-hscroller-grid","layout":{"type":"constrained"}} -->
                     <div class="wp-block-group ws-hscroller-grid">
                     
-                        <!-- wp:willsides/cover-link {"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
-                            <!-- wp:html -->
-                                <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"></path></svg>
-                            <!-- /wp:html -->
+                        <!-- wp:willsides/cover-link {"useCustomImage":true,"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
+                            <!-- wp:willsides/icon-link {"iconSlug":"local_bar","isLink":false,"symwght":100,"symopsz":48} -->
+                                <div class="wp-block-willsides-icon-link aligncenter" style="height:100px;width:100px;border-radius:0px"><span class="material-symbols-sharp" style="font-size:100px;font-variation-settings:&quot;FILL&quot; 0, &quot;wght&quot; 100, &quot;GRAD&quot; 0, &quot;opsz&quot; 48">local_bar</span></div>
+                            <!-- /wp:willsides/icon-link -->
                             
                             <!-- wp:heading {"textAlign":"center","level":4} -->
                                 <h4 class="wp-block-heading has-text-align-center">Cocktails</h4>
@@ -61,14 +61,14 @@ function willsides_register_horizontal_scrolling_pattern(){
                             <!-- /wp:post-template -->
                         </div><!-- /wp:query -->
 
-                        <!-- wp:willsides/cover-link {"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
+                        <!-- wp:willsides/cover-link {"useCustomImage":true,"overlayColor":"rgba(0, 0, 0, 0)","overlayHoverColor":"rgba(0, 0, 0, 0)","textColor":"background","className":"ws-hscroller-text-div"} -->
                             <!-- wp:heading {"textAlign":"center","level":4} -->
                                 <h4 class="wp-block-heading has-text-align-center">View more</h4>
                             <!-- /wp:heading -->
                             
-                            <!-- wp:html -->
-                                <svg style="width:3rem;height:3rem;" viewBox="0 0 24 24"><path fill="currentColor" d="M0,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
-                            <!-- /wp:html -->
+                            <!-- wp:willsides/icon-link {"iconSlug":"double_arrow","isLink":false,"symwght":100,"symopsz":48} -->                                
+                                <div class="wp-block-willsides-icon-link aligncenter" style="height:100px;width:100px;border-radius:0px"><span class="material-symbols-sharp" style="font-size:100px;font-variation-settings:&quot;FILL&quot; 0, &quot;wght&quot; 100, &quot;GRAD&quot; 0, &quot;opsz&quot; 48">double_arrow</span></div>
+                            <!-- /wp:willsides/icon-link -->
                         <!-- /wp:willsides/cover-link -->
                     </div><!-- /wp:group -->
                 </div><!-- /wp:group -->
@@ -95,9 +95,10 @@ function willsides_hscroller_enqueue_styles() {
 }
 
 function willsides_hscroller_activation_check() {
-    if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'willsides/cover-link' ) ) {
+    if ( ! ( WP_Block_Type_Registry::get_instance()->is_registered( 'willsides/cover-link' ) ||
+             WP_Block_Type_Registry::get_instance()->is_registered( 'willsides/icon-link' ) )) {
         deactivate_plugins( plugin_basename( __FILE__ ) );
-        wp_die( 'The required block willsides/cover-link is not installed. Please install and activate the <a href="https://github.com/willsides/cover-link" target="_blank">Cover Link block by Will Sides</a>.' );
+        wp_die( 'The required blocks <a href="https://github.com/willsides/cover-link" target="_blank">willsides/cover-link</a> and <a href="https://github.com/willsides/icon-link" target="_blank">willsides/icon-link</a> are not installed. Please install and activate the plugins.' );
     }
 }
 
